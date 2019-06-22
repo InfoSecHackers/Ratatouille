@@ -1,9 +1,3 @@
-#import capturestart
-#import capturestop
-#import ftpdownload
-#import getint
-#import pcapexport
-
 import argparse
 import sys
 
