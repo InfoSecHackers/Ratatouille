@@ -47,3 +47,4 @@ Arguments:
 		export      Export Captured Packets To FTP SERVER
 		download    Download PCAPS From FTP
 		
+We are working on Analysis part of tool soon we will release.
