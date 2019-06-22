@@ -40,6 +40,6 @@ try:
 		export      Export Captured Packets To FTP SERVER
 		download    Download PCAPS From FTP\n"""
 	else:
-		print "Enter -h / help for uses" 
+		print "Enter help for uses" 
 except Exception, e:
         	print("error %s " %e )
