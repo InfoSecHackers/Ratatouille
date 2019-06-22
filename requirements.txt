@@ -1,6 +1,4 @@
 argparse
 configparser
-MySQLdb
-ftplib
+MySQL-python
 pexpect
-telnetlib
