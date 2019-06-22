@@ -1,1 +1,6 @@
 argparse
+configparser
+MySQLdb
+ftplib
+pexpect
+telnetlib
