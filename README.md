@@ -46,5 +46,6 @@ Arguments:
 		stop        Stop PacketCapture On Router
 		export      Export Captured Packets To FTP SERVER
 		download    Download PCAPS From FTP
+		getcred     Extract Credentials from PCAP
 		
-We are working on Analysis part of tool soon we will release.
+We added credential extraction part and working for file and url extraction.
