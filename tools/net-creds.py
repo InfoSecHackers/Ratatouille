@@ -35,9 +35,8 @@ from urllib import unquote
 # Unintentional code contributors:
 #     Laurent Gaffie
 #     psychomario
-print os.getcwd()
+os.chdir("..")
 os.chdir("output")
-print os.getcwd()
 logging.basicConfig(filename='credentials.txt',level=logging.INFO)
 DN = open(devnull, 'w')
 pkt_frag_loads = OrderedDict()
