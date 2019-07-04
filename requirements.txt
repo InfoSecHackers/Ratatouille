@@ -2,3 +2,6 @@ argparse
 configparser
 MySQL-python
 pexpect
+scapy
+wsgiref
+colorama

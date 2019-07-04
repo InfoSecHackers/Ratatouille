@@ -1,3 +1,9 @@
+#import capturestart
+#import capturestop
+#import ftpdownload
+#import getint
+#import pcapexport
+
 import argparse
 import sys
 
@@ -19,6 +25,8 @@ try:
 		from tools import ftpdownload
 	elif args.option == 'getrouter':
 		from tools import getrouter
+	elif args.option == 'getcred':
+		from tools import getcred
 	elif args.option == "help":
 		print """
 		Description:
@@ -32,8 +40,9 @@ try:
 		start       Start PacketCapture On Router
 		stop        Stop PacketCapture On Router
 		export      Export Captured Packets To FTP SERVER
-		download    Download PCAPS From FTP\n"""
+		download    Download PCAPS From FTP
+		getcred     Extract Credentials from PCAP\n"""
 	else:
-		print "Enter help for uses" 
+		print "Enter -h / help for uses" 
 except Exception, e:
         	print("error %s " %e )
