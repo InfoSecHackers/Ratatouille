@@ -49,3 +49,5 @@ Arguments:
 		getcred     Extract Credentials from PCAP
 		
 We added credential extraction part and working for file and url extraction.
+
+Special Thanks to [Net-Cred](https://github.com/DanMcInerney/net-creds)
