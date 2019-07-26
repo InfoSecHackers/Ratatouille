@@ -1,7 +1,8 @@
 argparse
 configparser
-MySQL-python
 pexpect
 scapy
 wsgiref
 colorama
+scapy
+scapy-http

@@ -27,6 +27,8 @@ try:
 		from tools import getrouter
 	elif args.option == 'getcred':
 		from tools import getcred
+	elif args.option == 'geturl':
+		from tools import geturl
 	elif args.option == "help":
 		print """
 		Description:
@@ -41,7 +43,8 @@ try:
 		stop        Stop PacketCapture On Router
 		export      Export Captured Packets To FTP SERVER
 		download    Download PCAPS From FTP
-		getcred     Extract Credentials from PCAP\n"""
+		getcred     Extract Credentials from PCAP
+		geturl      Extract HTTP Url's From PCAP \n"""
 	else:
 		print "Enter -h / help for uses" 
 except Exception, e:

@@ -8,6 +8,7 @@ logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
 from scapy.all import *
 conf.verb=0
 from sys import exit
+from datetime import date
 import binascii
 import struct
 import argparse
@@ -35,9 +36,28 @@ from urllib import unquote
 # Unintentional code contributors:
 #     Laurent Gaffie
 #     psychomario
+def parse_args():
+   """Create the arguments"""
+   parser = argparse.ArgumentParser()
+   parser.add_argument("-i", "--interface", help="Choose an interface")
+   parser.add_argument("-p", "--pcap", help="Parse info from a pcap file; -p <pcapfilename>")
+   parser.add_argument("-f", "--filterip", help="Do not sniff packets from this IP address; -f 192.168.0.4")
+   parser.add_argument("-v", "--verbose", help="Display entire URLs and POST loads rather than truncating at 100 characters", action="store_true")
+   return parser.parse_args()
+
 os.chdir("..")
-os.chdir("output")
-logging.basicConfig(filename='credentials.txt',level=logging.INFO)
+dirdate= str(date.today())
+print os.getcwd()
+os.chdir("output/credentials")
+try:
+    os.mkdir(dirdate)
+except:
+    pass
+os.chdir(dirdate)
+gargs = parse_args()
+filename = os.path.basename(gargs.pcap)
+filename = filename.replace('.pcap','')
+logging.basicConfig(filename=filename,level=logging.INFO)
 DN = open(devnull, 'w')
 pkt_frag_loads = OrderedDict()
 challenge_acks = OrderedDict()
@@ -63,14 +83,6 @@ http_search_re = '((search|query|&q|\?q|search\?p|searchterm|keywords|keyword|co
 W = '\033[0m'  # white (normal)
 T = '\033[93m'  # tan
 
-def parse_args():
-   """Create the arguments"""
-   parser = argparse.ArgumentParser()
-   parser.add_argument("-i", "--interface", help="Choose an interface")
-   parser.add_argument("-p", "--pcap", help="Parse info from a pcap file; -p <pcapfilename>")
-   parser.add_argument("-f", "--filterip", help="Do not sniff packets from this IP address; -f 192.168.0.4")
-   parser.add_argument("-v", "--verbose", help="Display entire URLs and POST loads rather than truncating at 100 characters", action="store_true")
-   return parser.parse_args()
 
 def iface_finder():
     system_platform = platform.system()
