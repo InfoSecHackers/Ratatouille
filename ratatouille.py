@@ -9,8 +9,9 @@ import sys
 
 try:
 	parser = argparse.ArgumentParser(description='Advanced Tool For Router PacketCapture and Analysis')
-	parser.add_argument("option", help="For more detail use help",type=str)
+	parser.add_argument("option", default='help')
 	args = parser.parse_args()
+	parser.print_help()
 
 	#print sys.argv[1]
 	if args.option == 'getint':
@@ -29,23 +30,29 @@ try:
 		from tools import getcred
 	elif args.option == 'geturl':
 		from tools import geturl
+	elif args.option == 'getfile':
+		from tools import getfile
 	elif args.option == "help":
 		print """
-		Description:
+Description:
 
-		Advanced Tool For Router PacketCapture and Analysis
+    Advanced Tool For Router PacketCapture and Analysis
 
-		Arguments:
-		
-		getrouter   Get username password of router
-		getint      Get Active Interface of Router
-		start       Start PacketCapture On Router
-		stop        Stop PacketCapture On Router
-		export      Export Captured Packets To FTP SERVER
-		download    Download PCAPS From FTP
-		getcred     Extract Credentials from PCAP
-		geturl      Extract HTTP Url's From PCAP \n"""
+        Arguments:
+        
+            Capture:
+                getrouter   Get username password of router
+                getint      Get Active Interface of Router
+                start       Start PacketCapture On Router
+                stop        Stop PacketCapture On Router
+                export      Export Captured Packets To FTP SERVER
+                download    Download PCAPS From FTP
+                
+            Analysis:
+                getcred     Extract Credentials from PCAP
+                geturl      Extract HTTP Url's From PCAP
+                getfile     Extract Files From PCAP \n"""
 	else:
-		print "Enter -h / help for uses" 
+		print "Enter help for uses" 
 except Exception, e:
-        	print("error %s " %e )
+    pass
