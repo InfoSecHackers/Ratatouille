@@ -47,6 +47,7 @@ Arguments:
 		export      Export Captured Packets To FTP SERVER
 		download    Download PCAPS From FTP
 		getcred     Extract Credentials from PCAP
+		geturl      Extract HTTP Url's From PCAP
 		
 We added credential extraction part and working for file and url extraction.
 
