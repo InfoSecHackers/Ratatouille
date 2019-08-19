@@ -63,3 +63,16 @@ Description:
 We added credential , file , `http request and response` and voip extraction and also you can use gui with bellow given guide.
 
 Special Thanks to [Net-Cred](https://github.com/DanMcInerney/net-creds)
+
+# GUI
+
+To run gui you need to install django2 with python3
+
+<h3> Gui configuration </h3>
+	<ul>
+	<li> pip3 install django </li>
+	<li> pyhton3 manage.py makemigrations </li>
+	<li> python3 manage.py migrate </li>
+	<li> pyhton3 insert.py</li>
+	<li> python3 manage.py runserver </li>
+	</ul>
