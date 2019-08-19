@@ -1,0 +1,85 @@
+{% extends "base_generic.html" %}
+
+{% block content%}
+{% include "header.html" %}
+	{%if source == 'cred'%}
+		{% for cred in cred_list %}
+			{% if date.id == cred.date_id %}
+					{% if ip.id == cred.ip_id %}
+						<table>
+							<tr>
+								<td> {{ cred.cred }} </td>
+							</tr>
+						</table>
+					{% elif cred.cred == '' %}
+						<table>
+							<tr>
+								<td> No Credentials Found </td>
+							</tr>
+						</table>
+					{% else %}
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'req'%}
+		{% for url in url_list %}
+			{% if date.id == url.date_id %}
+					{% if ip.id == url.ip_id %}
+						<table>
+							<tr>
+								<td> {{ url.url }} </td>
+							</tr>
+						</table>
+					{% elif url.url == '' %}
+						<table>
+							<tr>
+								<td> No Request Found </td>
+							</tr>
+						</table>
+					{% else %}
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'file'%}
+		{% for file in file_list %}
+			{% if date.id == file.date_id %}
+					{% if ip.id == file.ip_id %}
+						<table>
+							<tr>
+								<td> {{ file.file_name }} </td>
+							</tr>
+						</table>
+					{% elif file.file_name == '' %}
+						<table>
+							<tr>
+								<td> No File Name Found </td>
+							</tr>
+						</table>
+					{% else %}
+					{% endif %}
+				{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'voip'%}
+		{% for voip in voip_list %}
+			{% if date.id == cred.date_id %}
+					{% if ip.id == voip.ip_id %}
+						<table>
+							<tr>
+								<td> {{ voip.file_name }} </td>
+							</tr>
+						</table>
+					{% elif voip.file_name == '' %}
+						<table>
+							<tr>
+								<td> No Voip File Found </td>
+							</tr>
+						</table>
+					{% else %}
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+{% endblock %}	

@@ -1,0 +1,93 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% include "header.html" %}
+{% if source == 'cred' %}
+	{% for cred in cred_list %}
+		{% for date in date_list %}
+			{% for ip in ip_list %}
+				{% if date.id == cred.date_id %}
+					{% if ip.id == cred.ip_id  %}
+						<li>
+							<a href="{% url 'data' source=source date=date.date ip=ip.ip %}"> 
+									{{ ip.ip }} 
+									({% for country in country_list %}
+											{% if cred.country_id == country.id %}
+												{{ country.country_name }}
+											{% endif %}
+									{% endfor %})
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor%}
+{% endif %}
+{% if source == 'req' %}
+	{% for url in url_list %}
+		{% for date in date_list %}
+			{% for ip in ip_list %}
+				{% if date.id == url.date_id %}
+					{% if ip.id == url.ip_id  %}
+						<li>
+							<a href="{% url 'data' source=source date=date.date ip=ip.ip %}"> 
+									{{ ip.ip }} 
+									({% for country in country_list %}
+											{% if url.country_id == country.id %}
+												{{ country.country_name }}
+											{% endif %}
+									{% endfor %})
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor%}
+{% endif %}
+{% if source == 'file' %}
+	{% for file in file_list %}
+		{% for date in date_list %}
+			{% for ip in ip_list %}
+				{% if date.id == file.date_id %}
+					{% if ip.id == file.ip_id  %}
+						<li>
+							<a href="{% url 'data' source=source date=date.date ip=ip.ip %}"> 
+									{{ ip.ip }} 
+									({% for country in country_list %}
+											{% if file.country_id == country.id %}
+												{{ country.country_name }}
+											{% endif %}
+									{% endfor %})
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor%}
+{% endif %}
+{% if source == 'voip' %}
+	{% for voip in voip_list %}
+		{% for date in date_list %}
+			{% for ip in ip_list %}
+				{% if date.id == voip.date_id %}
+					{% if ip.id == voip.ip_id  %}
+						<li>
+							<a href="{% url 'data' source=source date=date.date ip=ip.ip %}"> 
+									{{ ip.ip }} 
+									({% for country in country_list %}
+											{% if voip.country_id == country.id %}
+												{{ country.country_name }}
+											{% endif %}
+									{% endfor %})
+							</a>
+						</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor%}
+{% endif %}
+{% endblock %}

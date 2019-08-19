@@ -1,17 +1,12 @@
-#import capturestart
-#import capturestop
-#import ftpdownload
-#import getint
-#import pcapexport
-
 import argparse
-import sys
+import sys,os
+
+started =os.getcwd()
 
 try:
 	parser = argparse.ArgumentParser(description='Advanced Tool For Router PacketCapture and Analysis')
 	parser.add_argument("option", default='help')
 	args = parser.parse_args()
-	parser.print_help()
 
 	#print sys.argv[1]
 	if args.option == 'getint':
@@ -26,12 +21,21 @@ try:
 		from tools import ftpdownload
 	elif args.option == 'getrouter':
 		from tools import getrouter
-	elif args.option == 'getcred':
+	elif args.option == 'analyse':
 		from tools import getcred
-	elif args.option == 'geturl':
+		getcred.getcred()
+		os.chdir(started)
 		from tools import geturl
-	elif args.option == 'getfile':
+		geturl.geturl()
+		os.chdir(started)
 		from tools import getfile
+		getfile.getfile()
+		os.chdir(started)
+		from tools import getvoip
+		getvoip.getvoip()
+		os.chdir(started)
+		from tools import clean
+		clean.clean()
 	elif args.option == "help":
 		print """
 Description:
@@ -49,10 +53,9 @@ Description:
                 download    Download PCAPS From FTP
                 
             Analysis:
-                getcred     Extract Credentials from PCAP
-                geturl      Extract HTTP Url's From PCAP
-                getfile     Extract Files From PCAP \n"""
+                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls From PCAP to output/ folder \n"""
 	else:
 		print "Enter help for uses" 
 except Exception, e:
-    pass
+	print e
+    #pass

@@ -1,0 +1,8 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% include "header.html" %}
+	{% for date in date_list %}
+		<li><a href="{% url 'ip' source=source date=date.date %}">{{ date.date }}</a></li>
+	{% endfor %}
+{% endblock %}
