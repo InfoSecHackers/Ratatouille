@@ -76,4 +76,4 @@ To run gui you need to install django2 with python3
 	<li> pyhton3 insert.py</li>
 	<li> python3 manage.py runserver </li>
 	</ul>
-<h5>you need to run <i>insert.py</i> every time after running <i> ratatouille.py analyse</i> </h5>
+<h5>You need to run <i>insert.py</i> every time after running <i> ratatouille.py analyse</i> </h5> (till we automate this part)
