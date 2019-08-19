@@ -43,7 +43,11 @@ Advanced Tool For Router Packet Capture and Analysis.
 	<li>run using command "<b>python ratatouille.py </b>" </li>
 </ul>
 
-Arguments:
+Description:
+
+    Advanced Tool For Router PacketCapture and Analysis
+
+        Arguments:
         
             Capture:
                 getrouter   Get username password of router
@@ -54,10 +58,8 @@ Arguments:
                 download    Download PCAPS From FTP
                 
             Analysis:
-                getcred     Extract Credentials from PCAP
-                geturl      Extract HTTP Url's From PCAP
-                getfile     Extract Files From PCAP
+                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls From PCAP to output/ folder 
 		
-We added credential extraction part and working for file and url extraction.
+We added credential , file , `http request and response` and voip extraction and also you can use gui with bellow given guide.
 
 Special Thanks to [Net-Cred](https://github.com/DanMcInerney/net-creds)
