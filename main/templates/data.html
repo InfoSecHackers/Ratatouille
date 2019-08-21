@@ -2,6 +2,7 @@
 
 {% block content%}
 {% include "header.html" %}
+<div class="container-fluid bg-3 text-center">
 	{%if source == 'cred'%}
 		{% for cred in cred_list %}
 			{% if date.id == cred.date_id %}
@@ -82,4 +83,5 @@
 			{% endif %}
 		{% endfor %}
 	{%endif%}
+</div>
 {% endblock %}	
