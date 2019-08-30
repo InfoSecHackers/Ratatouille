@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<div class="container-fluid bg-3 " style="margin-left: 15%;">
+		<input  class="btn btn-dark" type=button value="Back" onClick="javascript:history.go(-1);">
+		<h1>
+			{% if source == 'cred' %} Credentials {% endif %}
+			{% if source == 'req' %} Http Requests and Response {% endif %}
+			{% if source == 'file' %} Files {% endif %}
+			{% if source == 'voip' %} Media(Voip,Video) {% endif %} 
+			{% if source == 'dns' %} Dns {% endif %}
+		</h1>
+		<ul>
+			{% for date in date_list %}
+				<li>
+					<a href="{% url 'ip' source=source date=date.date %}">
+						{{ date.date }}
+					</a>
+				</li>	
+			{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base_generic.html" %}
+
+{% block content%}
+<div class="container-fluid bg-3 "style="margin-left: 15%;">
+	<input  class="btn btn-dark" type=button value="Back" onClick="javascript:history.go(-1);">
+	<h1>{% if source == 'cred' %} Credentials {% endif %}
+			{% if source == 'req' %} Http Requests and Response {% endif %}
+			{% if source == 'file' %} Files {% endif %}
+			{% if source == 'voip' %} Media(Voip,Video) {% endif %} 
+			{% if source == 'dns' %} Dns {% endif %}
+	</h1>
+	{%if source == 'cred'%}
+		{% for cred in cred_list %}
+			{% if date.id == cred.date_id %}
+					{% if ip.id == cred.ip_id %}
+						<table>
+							<tr>
+								<td> {{ cred.cred }} </td>
+							</tr>
+						</table>
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'req'%}
+		{% for url in url_list %}
+			{% if date.id == url.date_id %}
+					{% if ip.id == url.ip_id %}
+						<table>
+							<tr>
+								<td> {{ url.url }} </td>
+								<br>
+							</tr>
+						</table>
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'dns'%}
+		{% for dns in dns_list %}
+			{% if date.id == dns.date_id %}
+					{% if ip.id == dns.ip_id %}
+						<table>
+							<tr>
+								<td> {{ dns.dns }} </td>
+							</tr>
+						</table>
+					{% endif %}
+			{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'file'%}
+		{% for file in file_list %}
+			{% if date.id == file.date_id %}
+					{% if ip.id == file.ip_id %}
+						<table>
+							<tr>
+								<td> <a href="{% url 'file_viewer' source=source date=date.date ip=ip.ip file_id=file.id %}">{{ file.file_name }}</a> </td>
+							</tr>
+						</table>
+					{% endif %}
+				{% endif %}
+		{% endfor %}
+	{%endif%}
+	{%if source == 'voip'%}
+		{% for voip in voip_list %}
+			{% if date.id == voip.date_id %}
+					{% if ip.id == voip.ip_id %}
+						<table>
+							<tr>
+								<td> <a href="{% url 'voip_viewer' source=source date=date.date ip=ip.ip voip_id=voip.id src='voip'%}">{{ voip.file_name }} </a></td>
+							</tr>
+						</table>
+					{% elif voip.file_name == '' %}
+						<table>
+							<tr>
+								<td> No Voip File Found </td>
+							</tr>
+						</table>
+					{% else %}
+					{% endif %}
+				{% endif %}
+		{% endfor %}
+	{%endif%}
+</div>
+{% endblock %}	
