@@ -1,7 +1,7 @@
 ![](/images/ratatouille.jpg)
 # About
 
-Advanced Tool For Router Packet Capture and Analysis.
+Gui Based Advanced Tool For Router Packet Capture and Analysis.
 
 <h5> All the tool provided here is just for education and research purpose don't misuse it in any illegal activity.<br>Author is not responsible for any misuse by you.</h5>
 
@@ -43,7 +43,11 @@ Advanced Tool For Router Packet Capture and Analysis.
 	<li>run using command "<b>python ratatouille.py </b>" </li>
 </ul>
 
-Arguments:
+Description:
+
+    Advanced Tool For Router PacketCapture and Analysis
+
+        Arguments:
         
             Capture:
                 getrouter   Get username password of router
@@ -54,10 +58,22 @@ Arguments:
                 download    Download PCAPS From FTP
                 
             Analysis:
-                getcred     Extract Credentials from PCAP
-                geturl      Extract HTTP Url's From PCAP
-                getfile     Extract Files From PCAP
+                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls From PCAP to output/ folder 
 		
-We added credential extraction part and working for file and url extraction.
+We added credential , file , `http request and response` and voip extraction and also you can use gui with bellow given guide.
 
 Special Thanks to [Net-Cred](https://github.com/DanMcInerney/net-creds)
+
+# GUI
+
+To run gui you need to install django2 with python3
+
+<h3> Gui configuration </h3>
+	<ul>
+	<li> pip3 install django </li>
+	<li> pyhton3 manage.py makemigrations </li>
+	<li> python3 manage.py migrate </li>
+	<li> pyhton3 insert.py</li>
+	<li> python3 manage.py runserver </li>
+	</ul>
+<h5>You need to run <i>insert.py</i> every time after running <i> ratatouille.py analyse</i> </h5> (till we automate this part)
