@@ -1,8 +1,0 @@
-argparse
-configparser
-pexpect
-scapy
-wsgiref
-colorama
-scapy
-scapy-http
