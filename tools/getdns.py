@@ -1,6 +1,6 @@
 import re,fileinput,os,sys
 
-def geturl():
+def getdns():
 
 	try:
 
@@ -11,10 +11,10 @@ def geturl():
 		for path, dirs, files in os.walk(path):
 			for filename in files:
 				fullpath = os.path.join(path, filename)
-				os.system("sudo python ../tools/parse.py %s " %fullpath)
+				os.system("sudo python ../tools/pcap-dns.py %s " %fullpath)
 
 	except Exception as e:
 
 		print e
 		os.chdir("..")
-		geturl()
+		getdns()
