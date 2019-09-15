@@ -63,7 +63,7 @@ Description:
                 download    Download PCAPS From FTP
                 
             Analysis:
-                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls From PCAP to output/ folder
+                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls, Dns Requests From PCAP to output/ folder and it will make IP source and Destination Link
 		
 #GUI Configurations
 
