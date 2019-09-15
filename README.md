@@ -41,8 +41,12 @@ Advanced Tool For Router Packet Capture and Analysis.
 
 <h4>Uses</h4>
 <ul>
-	<li>run using command "<b>python ratatouille.py </b>" </li>
+	<li>run using command "<b>python ratatouille.py help </b>" </li>
 </ul>
+
+<b>! Run Before Use </b>
+
+	mkdir old_pacp output old_output pcap_downloads && cd output && mkdir credentials  dns  files  graph  urls  voip && cd .. && cd old_output && mkdir credentials  dns  files  graph  urls  voip
 
 Description:
 
