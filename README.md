@@ -14,9 +14,10 @@ Advanced Tool For Router Packet Capture and Analysis.
 
 # Installation and Uses:
 
-<h4> Install bro </h4>
+<h4> Install bro and tshark </h4>
 <ul>
 	<li>sudo apt install bro</li>
+	<li>sudo apt install tshark</li>
 </ul>
 
 <h4> Configure Database </h4>
@@ -59,5 +60,18 @@ Description:
                 
             Analysis:
                 analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls From PCAP to output/ folder
+		
+#GUI Configurations
+
+To Configure Gui You need to run the following commands:
+	
+	sudo pip3 install django
+	sudo python3 manage.py makemigrations
+	sudo pyhton3 manage.py migrate
+	sudo pyhton3 manage.py runserver
+	
+	with the following commands you will get the server up and running on http://0.0.0.0:8000 .
+
+
 
 Special Thanks to [Net-Cred](https://github.com/DanMcInerney/net-creds)
