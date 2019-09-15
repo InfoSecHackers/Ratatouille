@@ -2,12 +2,14 @@
 
 {% block content%}
 <div class="container-fluid bg-3 "style="margin-left: 15%;">
-	<input  class="btn btn-dark" type=button value="Back" onClick="javascript:history.go(-1);">
+	<input  class="btn btn-dark" type=button style="position: fixed;" value="Back" onClick="javascript:history.go(-1);">
+	<br>
 	<h1>{% if source == 'cred' %} Credentials {% endif %}
 			{% if source == 'req' %} Http Requests and Response {% endif %}
 			{% if source == 'file' %} Files {% endif %}
 			{% if source == 'voip' %} Media(Voip,Video) {% endif %} 
 			{% if source == 'dns' %} Dns {% endif %}
+			{% if source == 'graph' %} IP Link {% endif %}
 	</h1>
 	{%if source == 'cred'%}
 		{% for cred in cred_list %}

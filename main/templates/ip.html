@@ -2,12 +2,14 @@
 
 {% block content %}
 <div class="container-fluid bg-3 " style="margin-left: 15%;">
-	<input  class="btn btn-dark" type=button value="Back" onClick="javascript:history.go(-1);">
+	<input  class="btn btn-dark" style="position: fixed;" type=button value="Back" onClick="javascript:history.go(-1);">
+	<br>
 	<h1>{% if source == 'cred' %} Credentials {% endif %}
 			{% if source == 'req' %} Http Requests and Response {% endif %}
 			{% if source == 'file' %} Files {% endif %}
 			{% if source == 'voip' %} Media(Voip,Video) {% endif %}
 			{% if source == 'dns' %} Dns {% endif %}
+			{% if source == 'graph' %} IP Link {% endif %}
 	</h1>
 {% if source == 'cred' %}
 	{% for cred_ip in cred_list_ip %}
@@ -122,6 +124,37 @@
 									)
 							</a>
 						</li>
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	{% endfor %}
+{% endif %}
+{% if source == 'graph' %}
+	{% for graph_ip in graph_list_ip %}
+		{% for ip in ip_list %}
+			{% for graph_date in graph_list_date %}
+				{% if date.id == graph_date.date_id %}
+					{% if ip.id == graph_ip.ip_id  %}
+						
+						{% for graph in graph_list %}
+							{% if graph.ip_id == graph_ip.ip_id and graph.date_id == date.id %}
+								<li><a href="{% url 'graph_viewer' source=source date=date.date ip=ip.ip ip_ids=graph.id %}"> {{ ip.ip }}
+
+													(
+														{% for country in country_list %}
+																{% if ip.country_id == country.id %}
+																	{{ country.country_name }}
+																{% endif %}
+														{% endfor %}
+													)
+									</a></li>					
+
+							{% endif %}
+						{% endfor %}
+									 
+													
+						
 					{% endif %}
 				{% endif %}
 			{% endfor %}

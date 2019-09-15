@@ -21,15 +21,34 @@ ftp.login(ftp_username,ftp_password)
 files = ftp.nlst()
 loc = "pcap_downloads/%s/"%dirdate
 os.mkdir(loc)
+os.mkdir(loc+'UAE')
+os.mkdir(loc+'SAUDI')
+os.mkdir(loc+'EGYPT')
+os.mkdir(loc+'BAHRAIN')
 # Print out the files
 for file in files:
-	
+	fi1 = file.split('-')
+	fi = fi1[1].split('.')
+	print fi[0]
 	print("Downloading..." + file)
-	ftp.retrbinary("RETR " + file ,open(loc+'/'+ file, 'wb').write)
-	ftp.delete(file)
+	if 'UAE' in fi[0]:
+		ftp.retrbinary("RETR " + file ,open(loc+'/UAE/'+ file, 'wb').write)
+		ftp.delete(file)
+	elif 'SAUDI' in fi[0]:
+		ftp.retrbinary("RETR " + file ,open(loc +'/SAUDI/'+ file, 'wb').write)
+		ftp.delete(file)
+	elif 'BAHRAIN' in fi[0]:
+		ftp.retrbinary("RETR " + file ,open(loc +'/BAHRAIN/'+ file, 'wb').write)
+		ftp.delete(file)
+	elif 'EGYPT' in fi[0]:
+		ftp.retrbinary("RETR " + file ,open(loc +'/EGYPT/'+ file, 'wb').write)
+		ftp.delete(file)
+	else:
+		print 'No Country Found'
 
 ftp.close()
 
 end = datetime.now()
 diff = end - start
 print('All files downloaded for ' + str(diff.seconds) + 's')
+

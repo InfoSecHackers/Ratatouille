@@ -9,5 +9,6 @@ urlpatterns = [
     		path('<source>/<date>/<ip>/data/', views.data, name='data'),
     		path('<source>/<date>/<ip>/<file_id>', views.file_viewer, name='file_viewer'),
     		path('<source>/<date>/<ip>/<voip_id>/<src>', views.voip_viewer, name='voip_viewer'),
+    		path('<source>/<date>/<ip>/<ip_ids>/', views.graph_viewer, name='graph_viewer'),
 ]  
 

@@ -37,8 +37,13 @@ try:
 		from tools import getdns
 		getdns.getdns()
 		os.chdir(started)
+		from tools import getgraph
+		getgraph.getgraph()
+		os.chdir(started)
 		from tools import clean
 		clean.clean()
+		os.chdir(started)
+		os.system("sudo python3 insert.py")
 	elif args.option == "help":
 		print """
 Description:
@@ -56,7 +61,7 @@ Description:
                 download    Download PCAPS From FTP
                 
             Analysis:
-                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls, Dns Requests From PCAP to output/ folder \n"""
+                analyse 	It will Extract Credentials, HTTP Url's, Files, VOIP Calls, Dns Requests From PCAP to output/ folder and it will make IP source and Destination Link \n"""
 	else:
 		print "Enter help for uses" 
 except Exception, e:

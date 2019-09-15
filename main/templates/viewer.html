@@ -6,13 +6,17 @@
 	<h1>{% if source == 'cred' %} Credentials {% endif %}
 			{% if source == 'req' %} Http Requests and Response {% endif %}
 			{% if source == 'file' %} Files {% endif %}
-			{% if source == 'voip' %} Media(Voip,Video) {% endif %} </h1>
+			{% if source == 'voip' %} Media(Voip,Video) {% endif %}
+			{% if source == 'dns' %} Dns {% endif %}
+			{% if source == 'graph' %} IP Link {% endif %} </h1>
 
 	{% if source == 'file' %}
+	{{ file.file_name}}
 	<iframe src="{{ file_path }}/{{ file.file_name }}" width="80%" height="500px" style="align-items: center;">
 	</iframe>
 	{% endif %}
 	{% if src == 'voip' %}
+	{{ voip.file_name}}
 	<video src="{{ voip_path }}/{{ voip.file_name }}" controls width="80%" height="200px" style="align-items: center;">
 	</video>
 	{% endif %}

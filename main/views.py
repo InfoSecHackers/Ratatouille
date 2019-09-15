@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 
 # Create your views here.
-from main.models import Country, Ip, Date, File, Voip, Url, Cred, Dns
+from main.models import Country, Ip, Date, File, Voip, Url, Cred, Dns, Graph
 
 def index(request):
 
@@ -77,6 +77,11 @@ def ip(request,source,date):
 	file_list_country = File.objects.values('country_id').distinct()
 	file_list_date = File.objects.values('date_id').distinct()
 
+	graph_list = Graph.objects.all()
+	graph_list_ip = Graph.objects.values('ip_id').distinct()
+	graph_list_country = Graph.objects.values('country_id').distinct()
+	graph_list_date = Graph.objects.values('date_id').distinct()
+
 	voip_list = Voip.objects.all()
 	voip_list_ip = Voip.objects.values('ip_id').distinct()
 	voip_list_country = Voip.objects.values('country_id').distinct()
@@ -125,6 +130,11 @@ def ip(request,source,date):
 	'dns_list_country':dns_list_country,
 	'dns_list_date':dns_list_date,
 
+	'graph_list':graph_list,
+	'graph_list_ip':graph_list_ip, 
+	'graph_list_country':graph_list_country,
+	'graph_list_date':graph_list_date,
+
 	'source':source,
 	'date':date,
 
@@ -142,6 +152,7 @@ def data (request,source,ip,date):
 	voip_list = Voip.objects.all()
 	url_list = Url.objects.all()
 	dns_list = Dns.objects.all()
+	graph_list =Graph.objects.all()
 	ip = Ip.objects.get(ip=ip)
 	date = Date.objects.get(date=date)
 	context = {
@@ -154,6 +165,7 @@ def data (request,source,ip,date):
 	'voip_list':voip_list,
 	'url_list':url_list,
 	'dns_list':dns_list,
+	'graph_list':graph_list,
 	'source':source,
 	'ip':ip,
 	'date':date,
@@ -204,3 +216,24 @@ def voip_viewer(request,source,ip,date,voip_id,src):
 	}
 
 	return render(request,'viewer.html',context=context)
+
+def graph_viewer(request,source,ip,date,ip_ids):
+
+	graph = Graph.objects.get(id=ip_ids)
+	graph_path = Graph.objects.values().get(id=ip_ids)
+	graph_path = graph_path.get('file_path')
+	graph_path = graph_path.replace('output','old_output')
+	graph_path = graph_path.replace('/media/loop/data/PCAPS/Ratatouille','')
+
+
+	context = {
+
+	'source':source,
+	'ip':ip,
+	'date':date,
+	'graph':graph,
+	'graph_path':graph_path,
+
+	}
+
+	return render(request,'link.html',context=context)

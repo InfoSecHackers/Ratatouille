@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Ratatouille</title>{% endblock %}
+  {% block title %}<title>Pcap Analysis</title>{% endblock %}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,13 +72,16 @@
 	      </button>
 	      <a href="#" class="btn btn-default btn-lg" >
     <span class="glyphicon glyphicon-search" ></span> Search</a>
-	      <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 20px"><b>Ratatouille</b></a>
+	      <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 20px"><b>Pcap Analysis</b></a>
 	    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right" >
 		<li>
 			<a href="{% url 'index' %}">Home</a>
 		</li>
+    <li>
+      <a href="{% url 'date' source='graph' %}">IP Link</a>
+    </li>
 		<li>
 			<a href="{% url 'date' source='cred' %}">Credentials</a>
 		</li>

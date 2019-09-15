@@ -26,6 +26,15 @@ class File(models.Model):
 	file_name = models.CharField(max_length=500)
 	file_path = models.FileField(upload_to='data/%Y/%m/%d/')
 
+class Graph(models.Model):
+
+	id = models.AutoField(primary_key=True)
+	country = models.ForeignKey('Country', on_delete=models.SET_NULL, null=True)
+	date = models.ForeignKey('Date', on_delete = models.SET_NULL, null = True)
+	ip = models.ForeignKey('Ip', on_delete = models.SET_NULL, null = True)
+	file_name = models.CharField(max_length=500)
+	file_path = models.FileField(upload_to='data/%Y/%m/%d/')
+
 class Voip(models.Model):
 
 	id = models.AutoField(primary_key=True)
