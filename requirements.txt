@@ -6,3 +6,6 @@ wsgiref
 colorama
 scapy
 scapy-http
+pandas
+python-geoip
+python-geoip-geolite2
